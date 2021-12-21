@@ -1,0 +1,319 @@
+-- Made by ! Primeless#2117 for game: Natural Disaster Survival
+-- Update 0.1 - Scrolling Frame instead
+
+local goi = game.CoreGui:FindFirstChild("NaturalDisasterGui")
+if goi then
+goi:Destroy()
+end
+local CAS = game:GetService('ContextActionService')
+local Gui = Instance.new("ScreenGui")
+local Frame = Instance.new("ScrollingFrame")
+local Label = Instance.new("TextLabel")
+local Button1 = Instance.new("TextButton")
+local Button2 = Instance.new("TextButton")
+local Button3 = Instance.new("TextButton")
+local Button4 = Instance.new("TextButton")
+local Button5 = Instance.new("TextButton")
+local Button6 = Instance.new("TextButton")
+local Open = Instance.new("TextButton")
+local Close = Instance.new("TextButton")
+local Message = Instance.new("TextLabel")
+local CoreGui = game:GetService('CoreGui')
+local plrs = game:GetService("Players")
+local plr = plrs.LocalPlayer
+local TeleportService = game:GetService('TeleportService')
+----------------------------------------------------------------------
+Gui.Name = 'NaturalDisasterGui'
+Gui.Parent = game.CoreGui
+
+Frame.Name = 'Frame'
+Frame.Parent = Gui
+Frame.BorderSizePixel = 1
+Frame.Position = UDim2.new(0.006, 0,0.536, 0)
+Frame.Size = UDim2.new(0, 210,0, 320)
+Frame.BackgroundColor3 = Color3.fromRGB(0,0,0)
+Frame.BorderColor3 = Color3.fromRGB(20,20,20)
+Frame.Selectable = true
+Frame.Active = true
+Frame.Visible = false
+
+Label.Name = 'Label'
+Label.Parent = Frame
+Label.Position = UDim2.new(0,0,0,0)
+Label.Size = UDim2.new(0, 200,0, 74)
+Label.BackgroundColor3 = Color3.new(255,255,255)
+Label.BackgroundTransparency = 1
+Label.Text = "Natural Disaster Gui"
+Label.TextSize = 14
+Label.TextColor3 = Color3.fromRGB(145,124,126)
+Label.Font = Enum.Font.Code
+Label.TextScaled = true
+
+Open.Name = 'Open'
+Open.Parent = Gui
+Open.Position = UDim2.new(0.006, 0,0.460, 0)
+Open.Size = UDim2.new(0, 166,0, 50)
+Open.BackgroundColor3 = Color3.fromRGB(0,0,0)
+Open.BorderColor3 = Color3.fromRGB(20,20,20)
+Open.Selectable = true
+Open.Active = true
+Open.Font = Enum.Font.Code
+Open.TextColor3 = Color3.fromRGB(145,124,126)
+Open.TextScaled = true
+Open.Text = "OPEN"
+
+Close.Name = 'Close'
+Close.Parent = Gui
+Close.Position = UDim2.new(0.006, 0,0.460, 0)
+Close.Size = UDim2.new(0, 166,0, 50)
+Close.BackgroundColor3 = Color3.fromRGB(0,0,0)
+Close.BorderColor3 = Color3.fromRGB(20,20,20)
+Close.Selectable = true
+Close.Active = true
+Close.Font = Enum.Font.Code
+Close.TextColor3 = Color3.fromRGB(145,124,126)
+Close.TextScaled = true
+Close.Visible = false
+Close.Text = "CLOSE"
+
+Message.Name = 'Message'
+Message.Parent = Gui
+Message.Position = UDim2.new(0.367, 0,-0.030, 0)
+Message.Size = UDim2.new(0, 363,0, 71)
+Message.BackgroundColor3 = Color3.fromRGB(0,0,0)
+Message.Text = "Next Disaster Is:"
+Message.TextSize = 14
+Message.TextColor3 = Color3.fromRGB(145,124,126)
+Message.Font = Enum.Font.Code
+Message.TextScaled = true
+Message.Selectable = true
+Message.Active = true
+Message.Visible = false
+
+Button1.Name = 'Button1'
+Button1.Parent = Frame
+Button1.Position = UDim2.new(0.085, 0,0.060, 0)
+Button1.Size = UDim2.new(0, 166,0, 50)
+Button1.BackgroundColor3 = Color3.fromRGB(0,0,0)
+Button1.BorderColor3 = Color3.fromRGB(20,20,20)
+Button1.Selectable = true
+Button1.Active = true
+Button1.Font = Enum.Font.Code
+Button1.TextColor3 = Color3.fromRGB(145,124,126)
+Button1.TextScaled = true
+Button1.Text = "Disable Fall Damage"
+
+Button2.Name = 'Button2'
+Button2.Parent = Frame
+Button2.Position = UDim2.new(0.085, 0,0.105, 0)
+Button2.Size = UDim2.new(0, 166,0, 50)
+Button2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Button2.BorderColor3 = Color3.fromRGB(20,20,20)
+Button2.Selectable = true
+Button2.Active = true
+Button2.Font = Enum.Font.Code
+Button2.TextColor3 = Color3.fromRGB(145,124,126)
+Button2.TextScaled = true
+Button2.Text = "Teleport To China Version"
+
+Button3.Name = 'Button3'
+Button3.Parent = Frame
+Button3.Position = UDim2.new(0.085, 0,0.150, 0)
+Button3.Size = UDim2.new(0, 166,0, 50)
+Button3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Button3.BorderColor3 = Color3.fromRGB(20,20,20)
+Button3.Selectable = true
+Button3.Active = true
+Button3.Font = Enum.Font.Code
+Button3.TextColor3 = Color3.fromRGB(145,124,126)
+Button3.TextScaled = true
+Button3.Text = "Open Vote Menu"
+
+Button4.Name = 'Button4'
+Button4.Parent = Frame
+Button4.Position = UDim2.new(0.085, 0,0.150, 0)
+Button4.Size = UDim2.new(0, 166,0, 50)
+Button4.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Button4.BorderColor3 = Color3.fromRGB(20,20,20)
+Button4.Selectable = true
+Button4.Active = true
+Button4.Font = Enum.Font.Code
+Button4.TextColor3 = Color3.fromRGB(145,124,126)
+Button4.Visible = false
+Button4.TextScaled = true
+Button4.Text = "Close Vote Menu"
+
+Button5.Name = 'Button5'
+Button5.Parent = Frame
+Button5.Position = UDim2.new(0.085, 0,0.195, 0)
+Button5.Size = UDim2.new(0, 166,0, 50)
+Button5.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Button5.BorderColor3 = Color3.fromRGB(20,20,20)
+Button5.Selectable = true
+Button5.Active = true
+Button5.Font = Enum.Font.Code
+Button5.TextColor3 = Color3.fromRGB(145,124,126)
+Button5.Visible = true
+Button5.TextScaled = true
+Button5.Text = "Start Auto Farm"
+
+Button6.Name = 'Button6'
+Button6.Parent = Frame
+Button6.Position = UDim2.new(0.085, 0,0.793, 0)
+Button6.Size = UDim2.new(0, 166,0, 50)
+Button6.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Button6.BorderColor3 = Color3.fromRGB(20,20,20)
+Button6.Selectable = true
+Button6.Active = true
+Button6.Font = Enum.Font.Code
+Button6.TextColor3 = Color3.fromRGB(145,124,126)
+Button6.Visible = false
+Button6.TextScaled = true
+Button6.Text = "Stop Auto Farm"
+----------------------------------------------------------------------
+local TweenService = game:GetService('TweenService')
+local object = CoreGui.NaturalDisasterGui.Frame.Label
+local object1 = CoreGui.NaturalDisasterGui.Frame.Button1
+local object2 = CoreGui.NaturalDisasterGui.Frame.Button2
+local object3 = CoreGui.NaturalDisasterGui.Frame.Button3
+local object4 = CoreGui.NaturalDisasterGui.Frame
+local object5 = CoreGui.NaturalDisasterGui.Open
+local object6 = CoreGui.NaturalDisasterGui.Close
+local object7 = CoreGui.NaturalDisasterGui.Frame.Button4
+local object8 = CoreGui.NaturalDisasterGui.Message
+local object9 = CoreGui.NaturalDisasterGui.Frame.Button5
+local object10 = CoreGui.NaturalDisasterGui.Frame.Button6
+local tweenInfo = TweenInfo.new(1.8)
+
+Open.MouseButton1Click:Connect(function()
+    Open.Visible = false
+    Close.Visible = true
+    Frame.Visible = true
+end)
+
+Close.MouseButton1Click:Connect(function()
+    Close.Visible = false
+    Open.Visible = true
+    Frame.Visible = false
+end)
+
+Button1.MouseButton1Click:Connect(function()
+    if game:GetService("Workspace")[plr.Name]:FindFirstChild("FallDamageScript") then
+        game:GetService("Workspace")[plr.Name]:FindFirstChild("FallDamageScript"):Destroy()
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "Fall Damage Has Disabled";
+            Text = ""
+        })        
+    end
+end)
+
+Button2.MouseButton1Click:Connect(function()
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Teleporting...";
+        Text = ""
+    })      
+    TeleportService:Teleport(3696971654,plr)
+end)
+
+Button3.MouseButton1Click:Connect(function()
+    if plr.PlayerGui.MainGui.MapVotePage.Visible == false then
+        plr.PlayerGui.MainGui.MapVotePage.Visible = true
+        Button3.Visible = false
+        Button4.Visible = true
+    end
+end)
+
+Button4.MouseButton1Click:Connect(function()
+    if plr.PlayerGui.MainGui.MapVotePage.Visible == true then
+        plr.PlayerGui.MainGui.MapVotePage.Visible = false
+        Button3.Visible = true
+        Button4.Visible = false
+    end
+end)
+
+Button5.MouseButton1Click:Connect(function()
+    if game:GetService('Players').LocalPlayer.Character then
+        local char = game:GetService('Players').LocalPlayer.Character
+        if char:FindFirstChild('HumanoidRootPart') ~= nil then
+            Button5.Visible = false
+            Button6.Visible = true
+            Event = game.RunService.Stepped:Connect(function()
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-273, 179.5, 394)
+            end)
+        end
+    end
+end)
+
+Button6.MouseButton1Click:Connect(function()
+    Button5.Visible = true
+    Button6.Visible = false
+    Event:Disconnect()
+end)
+
+function disableFallDmg(actionName, inputState, inputObject)
+    if inputState == Enum.UserInputState.Begin then
+        if game:GetService("Workspace")[plr.Name]:FindFirstChild("FallDamageScript") ~= nil then
+     	    game:GetService("Workspace")[plr.Name]:FindFirstChild("FallDamageScript"):Destroy()
+       		game.StarterGui:SetCore("SendNotification", {
+                Title = "Fall Damage Has Disabled";
+                Text = ""
+            })    
+        end
+    end
+end
+
+CAS:BindAction('disableFallDmg', disableFallDmg, true, Enum.KeyCode.LeftControl)
+
+while wait(1) do
+local r, g, b = math.random(), math.random(), math.random()
+local goal = {TextColor3 = Color3.new(r, g, b)}
+local goal1 = {BorderColor3 = Color3.new(r, g, b)}
+
+local tween = TweenService:Create(object, tweenInfo, goal)
+local tween1 = TweenService:Create(object1, tweenInfo, goal)
+local tween2 = TweenService:Create(object2, tweenInfo, goal)
+local tween3 = TweenService:Create(object3, tweenInfo, goal)
+local tween4 = TweenService:Create(object5, tweenInfo, goal)
+local tween5 = TweenService:Create(object6, tweenInfo, goal)
+local tween6 = TweenService:Create(object7, tweenInfo, goal)
+local tween7 = TweenService:Create(object8, tweenInfo, goal)
+local tween8 = TweenService:Create(object1, tweenInfo, goal1)
+local tween9 = TweenService:Create(object2, tweenInfo, goal1)
+local tween10 = TweenService:Create(object3, tweenInfo, goal1)
+local tween11 = TweenService:Create(object4, tweenInfo, goal1)
+local tween12 = TweenService:Create(object5, tweenInfo, goal1)
+local tween13 = TweenService:Create(object6, tweenInfo, goal1)
+local tween14 = TweenService:Create(object7, tweenInfo, goal1)
+local tween15 = TweenService:Create(object8, tweenInfo, goal1)
+local tween16 = TweenService:Create(object9, tweenInfo, goal1)
+local tween17 = TweenService:Create(object9, tweenInfo, goal)
+local tween18 = TweenService:Create(object10, tweenInfo, goal1)
+local tween19 = TweenService:Create(object10, tweenInfo, goal)
+local SurvivalTag = plr.Character:FindFirstChild("SurvivalTag")
+if SurvivalTag then
+    Message.Visible = true
+    Message.Text = "Next Disaster Is: "..SurvivalTag.Value
+else
+    Message.Visible = false
+end
+tween:Play()
+tween1:Play()
+tween2:Play()
+tween3:Play()
+tween4:Play()
+tween5:Play()
+tween6:Play()
+tween7:Play()
+tween8:Play()
+tween9:Play()
+tween10:Play()
+tween11:Play()
+tween12:Play()
+tween13:Play()
+tween14:Play()
+tween15:Play()
+tween16:Play()
+tween17:Play()
+tween18:Play()
+tween19:Play()
+end
